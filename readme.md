@@ -6,7 +6,9 @@
 
 1. Config
 
-    config/app.php: providers => [ ... Lamnv\NotiChat\NotifyProvider::class ... ]
+    config/app.php: 
+
+    providers => [ ... Lamnv\NotiChat\NotifyProvider::class ... ]
 
     php artisan vendor:publish    
 
