@@ -1,6 +1,6 @@
 <?php
 
-namespace Devpa\NotiChat;
+namespace Lamnv\NotiChat;
 
 use Illuminate\Support\ServiceProvider;
 
