@@ -1,0 +1,22 @@
+{
+  "name": "nchat",
+  "version": "1.0.0",
+  "description": "notification and chat",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "socketio",
+    "expressjs",
+    "nodejs"
+  ],
+  "author": "lamnv",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "ioredis": "^2.4.0",
+    "nodemon": "^1.10.2",
+    "socket.io": "^1.4.8"
+  }
+}

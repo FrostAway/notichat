@@ -1,0 +1,19 @@
+{
+    "name": "lamnv/noti-chat",
+    "description": "notify chat",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lamnv",
+            "email": "lamnv@rikkeisoft.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Devpa\\NotiChat\\": "src/"
+        }
+    }
+}
