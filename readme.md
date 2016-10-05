@@ -1,15 +1,29 @@
 ## Notify and chat realtime
 
+    composer require lamnv/noti-chat    
+
 ## Install
 
-1. predis/predis
+1. Config
+
+    config/app.php: providers => [ ... Lamnv\NotiChat\NotifyProvider::class ... ]
+
+    php artisan vendor:publish    
+
+2. predis/predis
+
     composer require predis/predis    
-2. Nodejs/socket.io
+
+3. Nodejs/socket.io
+
     cd public/server    
     npm install    
-3. Redis
+
+4. Redis
+
     redis-cli.exe   
 
 ## Run
+
     node public/server/server.js    
     redis-cli.exe

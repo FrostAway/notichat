@@ -12,5 +12,10 @@
             "email": "lamnv@rikkeisoft.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Lamnv\\NotiChat\\": "packages/devpa/noti-chat/src/"
+        }
+    }
 }
