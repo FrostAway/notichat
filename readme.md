@@ -1,6 +1,6 @@
 ## Notify and chat realtime
 
-    composer require lamnv/noti-chat    
+    composer require lamnv/noti-chat dev-master      
 
 ## Install
 
