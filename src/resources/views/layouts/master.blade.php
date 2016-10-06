@@ -75,7 +75,7 @@ and open the template in the editor.
                         <li><a href="{{ url('/auth/register') }}">Register</a></li>
                         @else
                         <li class="dropdown chat-alert notify-box">
-                            <a id="chat-btn" href="#" class="dropdown-toggle notify-btn" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="num">{{Auth::user()->notify()->whereIn('notify_type', ['group', 'chat'])->where('is_read', 0)->count()}}</span></a>
+                            <a id="chat-btn" href="#" class="dropdown-toggle notify-btn" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="num">{{$user_notify_count}}</span></a>
                             <ul class="dropdown-menu" role="menu">
                                 @if($user_notify)
                                 @foreach($user_notify as $note)
@@ -85,7 +85,7 @@ and open the template in the editor.
                             </ul>
                         </li>
                         <li class="dropdown notify-alert notify-box">
-                            <a id="notify-btn" href="#" class="dropdown-toggle notify-btn" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="num">{{Auth::user()->notify()->where('notify_type', 'normal')->where('is_read', 0)->count()}}</span></a>
+                            <a id="notify-btn" href="#" class="dropdown-toggle notify-btn" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="num">{{$normal_notify_count}}</span></a>
                             <ul class="dropdown-menu" role="menu">
                                 @if($normal_notify)
                                 @foreach($normal_notify as $note)

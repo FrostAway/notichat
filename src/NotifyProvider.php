@@ -17,20 +17,30 @@ class NotifyProvider extends ServiceProvider {
 
         $user_notify = null;
         $normal_notify = null;
+        $user_notify_count = 0;
+        $normal_notify_count = 0;
         if (auth()->check()) {
             $user_notify = Notify::where('user_id', auth()->id())
                     ->whereIn('notify_type', ['group', 'chat'])
-                    ->where('is_read', 0)
                     ->orderBy('updated_at', 'desc')
                     ->paginate(15);
+            $user_notify_count = Notify::where('user_id', auth()->id())
+                    ->whereIn('notify_type', ['group', 'chat'])
+                    ->where('is_read', 0)
+                    ->count();
             $normal_notify = Notify::where('user_id', auth()->id())
                     ->where('notify_type', 'normal')
-                    ->where('id_read', 0)
                     ->orderBy('updated_at', 'desc')
                     ->paginate(15);
+            $normal_notify_count = Notify::where('user_id', auth()->id())
+                    ->where('notify_type', 'normal')
+                    ->where('is_read', 0)
+                    ->count();
         }
         view()->share('user_notify', $user_notify);
+        view()->share('user_notify_count', $user_notify_count);
         view()->share('normal_notify', $normal_notify);
+        view()->share('normal_notify_count', $normal_notify_count);
     }
 
     /**
