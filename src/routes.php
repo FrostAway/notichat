@@ -32,7 +32,10 @@ Route::group($route_group, function () {
 // Authentication routes...
             Route::get('login', 'AuthController@getLogin');
             Route::post('login', 'AuthController@postLogin');
-            Route::get('logout', 'AuthController@getLogout');
+            Route::get('logout', function () {
+                auth()->logout();
+                return redirect('/login');
+            });
 
 // Registration routes...
             Route::get('register', 'AuthController@getRegister');
