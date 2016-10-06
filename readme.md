@@ -15,6 +15,8 @@ publish file:
 
     php artisan vendor:publish   
 
+run migrations:
+
     php artisan migrate  
 
 add to .env file:
