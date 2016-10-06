@@ -6,10 +6,12 @@
 
 ### Config
 
-config/app.php: 
+add to config/app.php: 
 
     providers => 
     [ ... Lamnv\NotiChat\NotifyProvider::class ... ]
+
+publish file:
 
     php artisan vendor:publish   
 
