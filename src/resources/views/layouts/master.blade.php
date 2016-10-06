@@ -77,8 +77,7 @@ and open the template in the editor.
                         <li class="dropdown chat-alert notify-box">
                             <a id="chat-btn" href="#" class="dropdown-toggle notify-btn" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="num">{{Auth::user()->notify()->whereIn('notify_type', ['group', 'chat'])->where('is_read', 0)->count()}}</span></a>
                             <ul class="dropdown-menu" role="menu">
-                                @if(Auth::user()->notify)
-                                <?php $user_notify = Auth::user()->notify()->whereIn('notify_type', ['group', 'chat'])->orderBy('updated_at', 'desc')->paginate(15); ?>
+                                @if($user_notify)
                                 @foreach($user_notify as $note)
                                 <li id="notify-chat-{{$note->id}}" data-id="{{$note->id}}" class="{{$note->is_read ? '' : 'not-read'}}"><a href="#" data-type="{{$note->notify_type}}" data-object-id="{{$note->object_id}}">{!!$note->content!!}</a></li>
                                 @endforeach
@@ -86,7 +85,6 @@ and open the template in the editor.
                             </ul>
                         </li>
                         <li class="dropdown notify-alert notify-box">
-                            <?php $normal_notify = Auth::user()->notify()->where('notify_type', 'normal')->orderBy('updated_at', 'desc')->paginate(15); ?>
                             <a id="notify-btn" href="#" class="dropdown-toggle notify-btn" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="num">{{Auth::user()->notify()->where('notify_type', 'normal')->where('is_read', 0)->count()}}</span></a>
                             <ul class="dropdown-menu" role="menu">
                                 @if($normal_notify)

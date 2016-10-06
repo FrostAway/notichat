@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['namespace' => 'App\Http\Controllers'], function () {
+Route::group(['namespace' => 'App\Http\Controllers', 'middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 
@@ -19,19 +19,21 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         });
     });
 
-    Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
+    $auth_prefix = ['', 'auth'];
+    foreach ($auth_prefix as $prefix) {
+        Route::group(['prefix' => $prefix, 'namespace' => 'Auth'], function () {
 // Authentication routes...
-        Route::get('login', 'AuthController@getLogin');
-        Route::post('login', 'AuthController@postLogin');
-        Route::get('logout', 'AuthController@getLogout');
+            Route::get('login', 'AuthController@getLogin');
+            Route::post('login', 'AuthController@postLogin');
+            Route::get('logout', 'AuthController@getLogout');
 
 // Registration routes...
-        Route::get('register', 'AuthController@getRegister');
-        Route::post('register', 'AuthController@postRegister');
+            Route::get('register', 'AuthController@getRegister');
+            Route::post('register', 'AuthController@postRegister');
 
-        Route::controllers([
-            'password' => 'PasswordController',
-        ]);
-    });
-    
+            Route::controllers([
+                'password' => 'PasswordController',
+            ]);
+        });
+    }
 });

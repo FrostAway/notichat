@@ -12,9 +12,25 @@ class NotifyProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
- 
-            require __DIR__ . '/routes.php';
 
+        require __DIR__ . '/routes.php';
+
+        $user_notify = null;
+        $normal_notify = null;
+        if (auth()->check()) {
+            $user_notify = Notify::where('user_id', auth()->id())
+                    ->whereIn('notify_type', ['group', 'chat'])
+                    ->where('is_read', 0)
+                    ->orderBy('updated_at', 'desc')
+                    ->paginate(15);
+            $normal_notify = Notify::where('user_id', auth()->id())
+                    ->where('notify_type', 'normal')
+                    ->where('id_read', 0)
+                    ->orderBy('updated_at', 'desc')
+                    ->paginate(15);
+        }
+        view()->share('user_notify', $user_notify);
+        view()->share('normal_notify', $normal_notify);
     }
 
     /**
