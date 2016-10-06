@@ -1,7 +1,14 @@
 <?php
 
-Route::group(['namespace' => 'App\Http\Controllers', 'middleware' => 'web'], function () {
+$route_group = ['namespace' => 'App\Http\Controllers'];
+$version = app()->version();
+if (!preg_match('/5\.1/', $version)){
+   $route_group['middleware'] = 'web';
+}
 
+Route::group($route_group, function () {
+
+    Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
 
     Route::group(['middleware' => 'auth'], function () {

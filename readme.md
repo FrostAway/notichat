@@ -13,11 +13,7 @@
 
     php artisan vendor:publish   
 
-    php artisan migrate 
-
-### predis/predis
-
-    composer require predis/predis    
+    php artisan migrate  
 
 ### Nodejs/socket.io
 
@@ -32,6 +28,6 @@ Add environment variable and Run command:
     "redis-cli.exe"
 
 ## Run
-
-    node public/server/server.js    
+      
     redis-cli.exe
+    node public/server/server.js
