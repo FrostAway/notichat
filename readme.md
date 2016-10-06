@@ -6,7 +6,7 @@
 
 ### Config
 
-    config/app.php: 
+config/app.php: 
 
     providers => 
     [ ... Lamnv\NotiChat\NotifyProvider::class ... ]
@@ -14,6 +14,10 @@
     php artisan vendor:publish   
 
     php artisan migrate  
+
+add to .env file:
+
+    BROADCAST_DRIVER=redis
 
 ### Nodejs/socket.io
 
