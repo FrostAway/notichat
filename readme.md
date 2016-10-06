@@ -4,26 +4,29 @@
 
 ## Install
 
-1. Config
+Config
 
     config/app.php: 
 
     providers => [ ... Lamnv\NotiChat\NotifyProvider::class ... ]
 
-    php artisan vendor:publish    
+    php artisan vendor:publish   
 
-2. predis/predis
+    php artisan migrate 
+
+predis/predis
 
     composer require predis/predis    
 
-3. Nodejs/socket.io
+Nodejs/socket.io
 
     cd public/server    
     npm install    
 
-4. Redis
-
-    redis-cli.exe   
+Redis
+    
+    Install redis on windows : [download link](https://github.com/MSOpenTech/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.msi). 
+    Add environment variable and Run command: "redis-cli.exe"
 
 ## Run
 
